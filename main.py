@@ -1,10 +1,12 @@
-from rectangle import Rectangle
 from point import Point
 from random import randint
+from guiRectangle import GuiRectangle
+from guiPoint import GuiPoint
+import turtle
 
 
-rectangle = Rectangle(
-    Point(randint(0, 20), randint(0, 20)), Point(randint(0, 20), randint(0, 20))
+rectangle = GuiRectangle(
+    Point(randint(0, 200), randint(0, 200)), Point(randint(0, 200), randint(0, 200))
 )
 
 
@@ -14,7 +16,7 @@ print(
 )
 
 
-user_points = Point(int(input("Guess x: ")), int(input("Guess y: ")))
+user_points = GuiPoint(int(input("Guess x: ")), int(input("Guess y: ")))
 user_area = float(input("Guess the rectangle area: "))
 
 print(
@@ -22,3 +24,9 @@ print(
     {user_points.falls_in_rectangle(rectangle=rectangle)} "
 )
 print(f"Your area was off by: {rectangle.area()- user_area}")
+
+myturtle = turtle.Turtle()
+rectangle.draw(canvas=myturtle)
+
+user_points.draw(canvas=myturtle)
+turtle.done()

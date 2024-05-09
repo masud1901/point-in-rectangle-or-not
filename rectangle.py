@@ -9,3 +9,5 @@ class Rectangle:
 
     def area(self):
         return abs(self.point1.x - self.point2.x) * abs(self.point1.y - self.point2.y)
+
+
